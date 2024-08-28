@@ -1,14 +1,24 @@
 package com.project.springbootstudy.domain.user;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_user")
 public class User {
-    private String userId;
-    private String password;
+
+    @Id
+    @Column(name="user_id")
+    private String userId ;
+    private String password ;
     private String name;
-    private int age;
+    private int age ;
     private String gender;
     private String phone;
+    @Column(name = "home_addr")
     private String homeAddr;
-
     public User() {}
 
     @Override

@@ -1,14 +1,20 @@
 package com.project.springbootstudy.service.user;
 
 import com.project.springbootstudy.domain.user.User;
+import com.project.springbootstudy.controller.repository.user.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+
 @Service
 public class UserService {
 
+    @Autowired
+    UserRepository userRepository;
+
     //사용자 회원가입
-    public boolean join(User user) throws RuntimeException {
+    public void join(User user) throws RuntimeException {
 
         //사용자ID는 최대 10자리다.
         if(user.getUserId().length() > 10) {
@@ -54,11 +60,8 @@ public class UserService {
         }
         //사용자 요구사항 끝
 
-        //DB 연동 했다 치고 ~~
-
-        return true; //일단 무조건 true 반환
+        userRepository.save(user);
     }
-
 
     public boolean login(String userId , String password) throws RuntimeException {
 
@@ -81,5 +84,3 @@ public class UserService {
         return true;
     }
 }
-
-

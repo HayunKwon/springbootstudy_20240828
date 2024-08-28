@@ -69,7 +69,7 @@
     <!-- 타임리프를 활용하여 로그인 오류 메시지 출력 -->
     <div th:if="${error}" class="error">올바르지 않은 아이디 혹은 패스워드입니다. 회원가입부터 하셔야..?</div>
 
-    <form action="/login-process" method="post">
+    <form action="/logining" method="post">
         <label for="userId">UserId</label>
         <input type="text" id="userId" name="userId" th:value="${userId}" placeholder="Enter your userId" required>
 
@@ -79,7 +79,7 @@
         <input type="submit" value="Login">
     </form>
 
-    <form action="/user/join" method="get">
+    <form action="/user/joing" method="get">
         <input type="submit" value="Join US ! ">
     </form>
 </div>
